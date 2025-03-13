@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 using W2G.EF._Core;
 
 namespace W2G.EF
 {
     public class CommandedUnitEntity : WtgEntity
     {
+        [Column("unit_id")]
         public int UnitId { get; set; }
         public UnitEntity Unit { get; set; }
+        [Column("order_id")]
         public int OrderId { get; set; }
         public OrderEntity Order { get; set; }
 

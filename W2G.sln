@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W2G.EF", "W2G.EF\W2G.EF.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W2G.CSNL", "W2G.CSNL\W2G.CSNL.csproj", "{0ECD4441-3E98-4EA5-813C-8EB65CD5E3CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "W2G.WPF", "W2G.WPF\W2G.WPF.csproj", "{A3424CEE-4297-4477-9040-5F7A51E7B170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0ECD4441-3E98-4EA5-813C-8EB65CD5E3CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECD4441-3E98-4EA5-813C-8EB65CD5E3CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECD4441-3E98-4EA5-813C-8EB65CD5E3CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3424CEE-4297-4477-9040-5F7A51E7B170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3424CEE-4297-4477-9040-5F7A51E7B170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3424CEE-4297-4477-9040-5F7A51E7B170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3424CEE-4297-4477-9040-5F7A51E7B170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using W2G.CSNL._Controllers;
 using W2G.EF;
 using W2G.EF._Core;
 
@@ -10,9 +11,50 @@ namespace W2G.CSNL
         {
             try
             {
-                Console.WriteLine("Hello, World!");
-                BayEntity bay = GenerateBay("B032");
-                UnitEntity unit = GenerateUnit("B032U001");
+                UsageEntity usage = UsageMenu.GenerateUsage("Stockage", "#ffff00");
+                UsageMenu.SearchAndShowUsage("Stockage");
+                UsageMenu.UpdateUsage(usage, "Hébergement", "#00ffff");
+                UsageMenu.SearchAndShowUsage("Hébergement");
+                UsageMenu.DeleteUsage(usage);
+
+                TypeEntity type = TypeMenu.GenerateType("Type 3");
+                TypeMenu.SearchAndShowType("Type 3");
+                TypeMenu.UpdateType(type, "Type 4");
+                TypeMenu.SearchAndShowType("Type 4");
+                TypeMenu.DeleteType(type);
+
+                StateEntity state = StateMenu.GenerateState("Attente");
+                StateMenu.SearchAndShowState("Attente");
+                StateMenu.UpdateState(state, "En cours");
+                StateMenu.SearchAndShowState("En cours");
+                StateMenu.DeleteState(state);
+
+                BayEntity bay = BayMenu.GenerateBay("B031");
+                BayMenu.SearchAndShowBay("B031");
+                BayMenu.UpdateBay(bay, "B032");
+                BayMenu.SearchAndShowBay("B032");
+                BayMenu.DeleteBay(bay);
+
+                PackEntity pack = PackMenu.GeneratePack("Pack Particulier", 5, false, 25, 50);
+                //PackMenu.SearchAndShowPack("Pack Base");
+
+                //UserEntity user = UserMenu.GenerateUser("User 1", "testtest", "ROLE_CLIENT", "UserFirstName", "UserLastName");
+                //UserMenu.SearchAndShowUser("noemye@noemye.com");
+
+                //UnitEntity unit = UnitMenu.GenerateUnit("B032U001", state, bay, usage);
+                //UnitMenu.SearchAndShowUnit("B032U001");
+
+                //InterventionEntity intervention = InterventionMenu.GenerateIntervention(type, unit, type.Type, "Description");
+                //InterventionMenu.SearchAndShowIntervention("Maintenance");
+
+                //var start_date = new System.DateTime(2025, 13, 03);
+                //var end_date = new System.DateTime(2025, 14, 03);
+
+                //OrderEntity order = OrderMenu.GenerateOrder(user, pack, start_date, end_date, false, 1, 50);
+                //OrderMenu.SearchAndShowOrder("Pack Base");
+
+                //CommandedUnitEntity commandedUnit = CommandedUnitMenu.GenerateCommandedUnit(order, unit);
+                //CommandedUnitMenu.SearchAndShowCommandedUnit(order);
             }
             catch (Exception e)
             {
@@ -20,50 +62,6 @@ namespace W2G.CSNL
             }
             ConsoleTools.Pause("");
         }
-
-        #region Entity
-        static UnitEntity GenerateUnit(string reference)
-        {
-            WtgContext? context = new WtgContext();
-            UnitEntity unit = new UnitEntity();
-            unit.Reference = reference;
-            context.Add(unit);
-            context.SaveChanges();
-
-            //context.Database.EnsureDeleted();
-            //context.Database.EnsureCreated();
-
-            return unit;
-        }
-
-        static void SearchAndShowUnit(string reference)
-        {
-            WtgContext? context = new WtgContext();
-            context.Unit.FirstOrDefault(item => item.Reference == reference);
-        }
-        #endregion
-
-        #region Bay
-        static BayEntity GenerateBay(string reference)
-        {
-            WtgContext? context = new WtgContext();
-            BayEntity bay = new BayEntity();
-            bay.Reference = reference;
-            context.Add(bay);
-            context.SaveChanges();
-
-            //context.Database.EnsureDeleted();
-            //context.Database.EnsureCreated();
-
-            return bay;
-        }
-
-        static void SearchAndShowBay(string reference)
-        {
-            WtgContext? context = new WtgContext();
-            context.Bay.FirstOrDefault(item => item.Reference == reference);
-        }
-        #endregion
     }
 
     public static class ConsoleTools

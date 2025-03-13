@@ -9,10 +9,13 @@ namespace W2G.EF._Core
         [Required]
         public string Reference { get; set; }
 
+        [Column("state_id")]
         public int StateId { get; set; }
         public StateEntity State { get; set; }
+        [Column("bay_id")]
         public int BayId { get; set; }
         public BayEntity Bay { get; set; }
+        [Column("usage_id")]
         public int UsageId { get; set; }
         public UsageEntity Usage { get; set; }
 

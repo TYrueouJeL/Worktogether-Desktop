@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Nodes;
 
 namespace W2G.EF._Core
 {
@@ -13,23 +14,20 @@ namespace W2G.EF._Core
     }
     public class UserEntity : WtgEntity
     {
-        [EnumDataType(typeof(EUserKind))]
-        public EUserKind Kind { get; set; }
-        [Required]
-        public string Login { get; set; }
         [Required, EmailAddress]
         public string Email { get; set; }
         [Required, PasswordPropertyText]
         public string Password { get; set; }
+        public string Role { get; set; } = "[]";
+        public string Discr {  get; set; }
         [Required]
         public string? FirstName { get; set; }
         [Required]
         public string? LastName { get; set; }
-        public string Role { get; set; }
 
         public override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserEntity>().Property(e => e.Login);
+            // penser à implémenter le JSON
         }
     }
 }
