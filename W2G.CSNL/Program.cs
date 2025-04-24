@@ -1,7 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using W2G.CSNL._Controllers;
 using W2G.EF;
-using W2G.EF._Core;
 
 namespace W2G.CSNL
 {
@@ -36,16 +35,28 @@ namespace W2G.CSNL
                 BayMenu.DeleteBay(bay);
 
                 PackEntity pack = PackMenu.GeneratePack("Pack Particulier", 5, false, 25, 50);
-                //PackMenu.SearchAndShowPack("Pack Base");
+                PackMenu.SearchAndShowPack("Pack Particulier");
+                PackMenu.UpdatePack(pack, "Pack Nul", 7, true, 30, 55);
+                PackMenu.SearchAndShowPack("Pack Nul");
+                PackMenu.DeletePack(pack);
 
-                //UserEntity user = UserMenu.GenerateUser("User 1", "testtest", "ROLE_CLIENT", "UserFirstName", "UserLastName");
-                //UserMenu.SearchAndShowUser("noemye@noemye.com");
+                UserEntity user = UserMenu.GenerateUser("user@user.com", "testtest", 1, "customer", "UserFirstName", "UserLastName");
+                UserMenu.SearchAndShowUser("user@user.com");
+                UserMenu.UpdateUser(user, "user2@user2.com", "test2test2", 1, "customer", "User2FirstName", "User2LastName");
+                UserMenu.SearchAndShowUser("user2@user2.com");
+                UserMenu.DeleteUser(user);
 
-                //UnitEntity unit = UnitMenu.GenerateUnit("B032U001", state, bay, usage);
-                //UnitMenu.SearchAndShowUnit("B032U001");
+                UnitEntity unit = UnitMenu.GenerateUnit("B032U001", state, bay, usage);
+                UnitMenu.SearchAndShowUnit("B032U001");
+                UnitMenu.UpdateUnit(unit, "B032U002", state, bay, usage);
+                UnitMenu.SearchAndShowUnit("B032U002");
+                UnitMenu.DeleteUnit(unit);
 
-                //InterventionEntity intervention = InterventionMenu.GenerateIntervention(type, unit, type.Type, "Description");
-                //InterventionMenu.SearchAndShowIntervention("Maintenance");
+                //InterventionEntity intervention = InterventionMenu.GenerateIntervention("Intervention 10", "Description 10", new DateTime(), type, unit);
+                //InterventionMenu.SearchAndShowIntervention("Intervention 10");
+
+
+                //InterventionMenu.SearchAndShowIntervention("Intervention 1");
 
                 //var start_date = new System.DateTime(2025, 13, 03);
                 //var end_date = new System.DateTime(2025, 14, 03);

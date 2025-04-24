@@ -1,0 +1,67 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+                    xmlns:icn="http://metro.mahapps.com/winfx/xaml/iconpacks">
+    <Style TargetType="MenuItem" x:Key="IconMItemAccent" BasedOn="{StaticResource MahApps.Styles.MenuItem}">
+        <Style.Resources>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Teal.xaml"/>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="MenuItem" x:Key="IconMItemGreen" BasedOn="{StaticResource MahApps.Styles.MenuItem}">
+        <Style.Resources>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Emerald.xaml"/>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="MenuItem" x:Key="IconMItemRed" BasedOn="{StaticResource MahApps.Styles.MenuItem}">
+        <Style.Resources>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Crimson.xaml"/>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="MenuItem" x:Key="IconMItemYellow" BasedOn="{StaticResource MahApps.Styles.MenuItem}">
+        <Style.Resources>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Amber.xaml"/>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="MenuItem" x:Key="IconMItemBlue" BasedOn="{StaticResource MahApps.Styles.MenuItem}">
+        <Style.Resources>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Cobalt.xaml"/>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="MenuItem" x:Key="MItemCreate" BasedOn="{StaticResource IconMItemGreen}">
+        <Setter Property="Header" Value="Création"/>
+        <Setter Property="Icon">
+            <Setter.Value>
+                <icn:PackIconMaterial Kind="FilePlusOutline" Height="24" Width="24" Foreground="{DynamicResource MahApps.Brushes.Accent}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="MenuItem" x:Key="MItemEdit" BasedOn="{StaticResource IconMItemYellow}">
+        <Setter Property="Header" Value="Modification"/>
+        <Setter Property="Icon">
+            <Setter.Value>
+                <icn:PackIconMaterial Kind="FileEditOutline" Height="24" Width="24" Foreground="{DynamicResource MahApps.Brushes.Accent}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="MenuItem" x:Key="MItemDestroy" BasedOn="{StaticResource IconMItemRed}">
+        <Setter Property="Header" Value="Suppression"/>
+        <Setter Property="Icon">
+            <Setter.Value>
+                <icn:PackIconMaterial Kind="FileMinusOutline" Height="24" Width="24" Foreground="{DynamicResource MahApps.Brushes.Accent}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="MenuItem" x:Key="MItemChoose" BasedOn="{StaticResource IconMItemBlue}">
+        <Setter Property="Header" Value="Selectionner"/>
+        <Setter Property="Icon">
+            <Setter.Value>
+                <icn:PackIconMaterial Kind="CursorDefaultClick" Height="24" Width="24" Foreground="{DynamicResource MahApps.Brushes.Accent}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

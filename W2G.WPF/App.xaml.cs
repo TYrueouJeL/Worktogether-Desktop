@@ -1,6 +1,5 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
+using W2G.EF;
 
 namespace W2G.WPF;
 
@@ -9,19 +8,25 @@ namespace W2G.WPF;
 /// </summary>
 public partial class App : Application
 {
+    public static UserEntity USER { get; internal set; }
     public App()
     {
         Exit += App_Exit;
+        //Shutdown();
     }
 
+    private void App_Startup(object sender, StartupEventArgs e)
+    {
+        new MainWindow().ShowDialog();
+    }
     private void App_Exit(object sender, ExitEventArgs e)
     {
-        
+
     }
 
-    private void Application_Startup(object sender, StartupEventArgs e)
+    internal static WtgContext? GetContext()
     {
-        new MainWindow("Accueil").ShowDialog();
+        return new WtgContext();
     }
 }
 

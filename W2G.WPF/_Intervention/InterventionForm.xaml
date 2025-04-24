@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="W2G.WPF.InterventionForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:W2G.WPF"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ButtonDictionary.xaml"/>
+                <ResourceDictionary Source="/Styles/MenuDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0" Header="Champs" DataContext="{Binding Presentation}">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="4*"/>
+
+                    <ColumnDefinition Width="5"/>
+
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{DynamicResource TxtBlk_Label}" Text="TITRE"/>
+                <TextBox   Grid.Row="0" Grid.Column="2" Style="{DynamicResource TxtBox_Label}" Text="{Binding Title, ValidatesOnNotifyDataErrors=True}" ToolTip="{Binding (Validation.Errors)[0].ErrorContent, ElementName=self}"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="4" Style="{DynamicResource TxtBlk_Label}" Text="UNITE"/>
+                <Button   Grid.Row="0" Grid.Column="6" Style="{DynamicResource MahApps.Styles.Button}" Content="{Binding Unit.Label, ValidatesOnNotifyDataErrors=True}" Command="{Binding UnitCommand}"  ToolTip="{Binding (Validation.Errors)[0].ErrorContent, ElementName=self}"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Style="{DynamicResource TxtBlk_Label}" Text="DATE"/>
+                <DatePicker Grid.Row="2" Grid.Column="2" Style="{DynamicResource MahApps.Styles.DatePicker}"  SelectedDate="{Binding Date, ValidatesOnNotifyDataErrors=True}" ToolTip="{Binding (Validation.Errors)[0].ErrorContent, ElementName=self}"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="4" Style="{DynamicResource TxtBlk_Label}" Text="TYPE"/>
+                <Button    Grid.Row="2" Grid.Column="6" Style="{DynamicResource MahApps.Styles.Button}"  Content="{Binding Type.Label, ValidatesOnNotifyDataErrors=True}" Command="{Binding TypeCommand}"  ToolTip="{Binding (Validation.Errors)[0].ErrorContent, ElementName=self}"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Style="{DynamicResource TxtBlk_Label}" Text="DESCRIPTION"/>
+                <TextBox   Grid.Row="4" Grid.Column="2" Style="{DynamicResource TxtBox_Description}" Text="{Binding Description, ValidatesOnNotifyDataErrors=True}" ToolTip="{Binding (Validation.Errors)[0].ErrorContent, ElementName=self}" Grid.ColumnSpan="7"/>
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Style="{DynamicResource BtnCancel}" Command="{Binding CancelCommand}"/>
+            <Button Style="{DynamicResource BtnReset}"  Command="{Binding ResetCommand}" />
+            <Button Style="{DynamicResource BtnSave}"   Command="{Binding SaveCommand}"  />
+            <Button Style="{DynamicResource BtnHelp}"   Command="{Binding HelpCommand}"  />
+        </StackPanel>
+    </Grid>
+</UserControl>

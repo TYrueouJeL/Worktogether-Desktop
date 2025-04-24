@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace W2G.WPF.Modules
 {
@@ -25,23 +12,19 @@ namespace W2G.WPF.Modules
             InitializeComponent();
         }
 
-        private void Btn_Page_Click(object sender, RoutedEventArgs e)
+        private void Btn_Page_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Button button = (Button)sender;
-
             switch (button.Name)
             {
-                case "Btn_Admin":
-                    CCtrl_Module.Content = new AdminMod();
+                case "Btn_Page_Right":
+                    //CCtrl_Page.Content = new RightPage();
                     break;
-                case "Btn_Tech":
-                    CCtrl_Module.Content = new TechMod();
-                    break;
-                case "Btn_Compta":
-                    CCtrl_Module.Content = new ComptaMod();
+                case "Btn_Page_Users":
+                    //CCtrl_Page.Content = new UserPage();
                     break;
                 default:
-                    CCtrl_Module.Content = null;
+                    CCtrl_Page.Content = null;
                     break;
             }
         }

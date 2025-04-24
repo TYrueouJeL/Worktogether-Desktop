@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using W2G.EF;
-using W2G.EF._Core;
+﻿using W2G.EF;
 
 namespace W2G.CSNL._Controllers
 {
     public class InterventionMenu
     {
-        public static InterventionEntity GenerateIntervention(TypeEntity type, UnitEntity unit, string title, string description)
+        public static InterventionEntity GenerateIntervention(string title, string description, DateTime date, TypeEntity type, UnitEntity unit)
         {
             WtgContext? context = new WtgContext();
             InterventionEntity intervention = new InterventionEntity();
 
-            intervention.Type = type;
-            intervention.Unit = unit;
             intervention.Title = title;
             intervention.Description = description;
+            intervention.Date = date;
+            intervention.Type = type;
+            intervention.Unit = unit;
 
             context.Add(intervention);
             context.SaveChanges();
-            
+
             //context.Database.EnsureDeleted();
             //context.Database.EnsureCreated();
-            
+
             return intervention;
         }
 
@@ -33,7 +28,7 @@ namespace W2G.CSNL._Controllers
         {
             WtgContext? context = new WtgContext();
             InterventionEntity? intervention = context.Intervention.FirstOrDefault(item => item.Title == title);
-            Console.WriteLine($"Intervention : {intervention.Title} ({intervention?.Units(context).Count()})");
+            Console.WriteLine($"Intervention : {intervention.Title}");
         }
     }
 }

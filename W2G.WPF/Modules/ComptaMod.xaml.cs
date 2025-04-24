@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace W2G.WPF.Modules
 {
@@ -23,6 +10,26 @@ namespace W2G.WPF.Modules
         public ComptaMod()
         {
             InitializeComponent();
+        }
+
+        private void Btn_Page_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            switch (button.Name)
+            {
+                case "Btn_Page_Customer":
+                    //CCtrl_Page.Content = new CustomerPage();
+                    break;
+                case "Btn_Page_Contract":
+                    //CCtrl_Page.Content = new ContractPage();
+                    break;
+                case "Btn_Page_Offer":
+                    //CCtrl_Page.Content = new OfferPage();
+                    break;
+                default:
+                    CCtrl_Page.Content = null;
+                    break;
+            }
         }
     }
 }

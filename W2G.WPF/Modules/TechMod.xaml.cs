@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using W2G.WPF.Core;
 
 namespace W2G.WPF.Modules
 {
@@ -23,24 +11,15 @@ namespace W2G.WPF.Modules
         public TechMod()
         {
             InitializeComponent();
+            BtnPage_Bay.FuncGetPage = () => new BayBoard();
+            BtnPage_Unit.FuncGetPage = () => new UnitBoard();
+            BtnPage_Interventions.FuncGetPage = () => new InterventionBoard();
+            BtnPage_Type.FuncGetPage = () => new TypeBoard();
+            BtnPage_State.FuncGetPage = () => new StateBoard();
+            BtnPage_Usage.FuncGetPage = () => new UsageBoard();
         }
 
-        private void Btn_Tech_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-
-            switch (button.Name)
-            {
-                case "Btn_Bay":
-                    CCtrl_Page.Content = new AdminMod();
-                    break;
-                case "Btn_Unit":
-                    CCtrl_Page.Content = new TechMod();
-                    break;
-                default:
-                    CCtrl_Page.Content = null;
-                    break;
-            }
-        }
+        private void Btn_Page_Click(object sender, System.Windows.RoutedEventArgs e)
+        => CCtrl_Page.Content = (sender as PageButton)?.FuncGetPage();
     }
 }

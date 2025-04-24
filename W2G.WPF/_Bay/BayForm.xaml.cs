@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using W2G.EF;
+using W2G.WPF.Core;
 
 namespace W2G.WPF
 {
     /// <summary>
     /// Logique d'interaction pour BayForm.xaml
     /// </summary>
-    public partial class BayForm : UserControl
+    public partial class BayForm : UserControl, IFormControl<BayEntity>
     {
-        public BayForm()
+        public FormVM<BayEntity> VM { get; }
+        public BayForm(BayController controller, EFormMode mode, BayEntity e)
         {
             InitializeComponent();
+            DataContext = VM = new FormVM<BayEntity>(controller, mode, e);
+        }
+        public BayForm()
+            : this(new BayController(), EFormMode.Create, new BayEntity())
+        {
+
         }
     }
 }

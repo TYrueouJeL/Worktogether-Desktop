@@ -1,13 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+                    xmlns:icn="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
     <ResourceDictionary.MergedDictionaries>
         <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
         <!-- Theme setting -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Teal.xaml" />
+        <!-- Custom styles -->
     </ResourceDictionary.MergedDictionaries>
-
     <Style TargetType="Button" x:Key="BtnModule" BasedOn="{StaticResource MahApps.Styles.Button.MetroSquare.Accent}">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -17,6 +20,69 @@
         <Setter Property="Margin" Value="5"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="10"/>
     </Style>
+
+    <Style TargetType="mah:MetroWindow" x:Key="MainWindow">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        <Setter Property="WindowState" Value="Maximized"/>
+        <Setter Property="ShowInTaskbar" Value="true"/>
+        <Setter Property="ShowIconOnTitleBar" Value="True"/>
+    </Style>
+    <Style TargetType="mah:MetroWindow" x:Key="PopWindow">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="SizeToContent" Value="Manual"/>
+        <Setter Property="WindowState" Value="Normal"/>
+        <Setter Property="ShowInTaskbar" Value="true"/>
+        <Setter Property="ShowIconOnTitleBar" Value="True"/>
+        <Setter Property="MinWidth" Value="540"/>
+        <Setter Property="MinHeight" Value="540"/>
+    </Style>
+
+    <Style TargetType="DataGrid" x:Key="DGrdEntity" BasedOn="{StaticResource MahApps.Styles.DataGrid}">
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="AlternatingRowBackground" Value="{DynamicResource MahApps.Brushes.Accent4}"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Visible"/>
+        <Setter Property="ItemsSource" Value="{Binding ItemsSource, Mode=OneWay}"/>
+        <Setter Property="SelectedItem" Value="{Binding SelectedItem, Mode=TwoWay}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TxtBlk_Label" BasedOn="{StaticResource MahApps.Styles.TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style TargetType="TextBox" x:Key="TxtBox_Field" BasedOn="{StaticResource MahApps.Styles.TextBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}"/>
+    </Style>
+    <Style TargetType="ComboBox" x:Key="CmbBox_Key" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="DisplayMemberPath" Value="EntityLabel"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}"/>
+    </Style>
+    <Style TargetType="DatePicker" x:Key="DPicker_Field" BasedOn="{StaticResource MahApps.Styles.DatePicker}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}"/>
+    </Style>
+    <Style TargetType="CheckBox" x:Key="CkBox_Field" BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="IsThreeState" Value="True"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}"/>
+    </Style>
+    <Style TargetType="PasswordBox" x:Key="PwBox_Field" BasedOn="{StaticResource MahApps.Styles.PasswordBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}"/>
+    </Style>
+
 </ResourceDictionary>

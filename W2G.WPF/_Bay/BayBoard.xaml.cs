@@ -1,28 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using W2G.EF;
+using W2G.WPF.Core;
 
 namespace W2G.WPF
 {
     /// <summary>
     /// Logique d'interaction pour BayBoard.xaml
     /// </summary>
-    public partial class BayBoard : UserControl
+    public partial class BayBoard : UserControl, IBoardControl<BayEntity>
     {
-        public BayBoard()
+        public BoardVM<BayEntity> VM { get; }
+        public BayBoard(BayController controller, EBoardMode mode, string search)
         {
+            VM = new BoardVM<BayEntity>(controller, mode, search);
+
+            VM.DefaultEntityFunc = () => new BayEntity();
+            
+            VM.SearchFunc = SearchSource;
+            DataContext = VM;
             InitializeComponent();
         }
+
+        public BayBoard(EBoardMode mode, string search)
+            : this(new BayController(), mode, search)
+        {
+        }
+
+        public BayBoard()
+            : this(new BayController(), EBoardMode.Extended, null)
+        {
+        }
+
+        private bool SearchSource(string search, BayEntity entity)
+        {
+            return entity.MatchSearch(search);
+        }
+
+        private void DGrdMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+            => (this as IBoardControl<BayEntity>).DGrdMDC();
     }
 }
