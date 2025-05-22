@@ -42,6 +42,7 @@
 
         <TabControl Grid.Row="2" Background="Transparent">
             <TabItem Header="Unités" FontSize="10">
+                <!--<local:UnitBoard x:Name="UnitB"/>-->
                 <local:UnitBoard BayFilter="{Binding ElementName=Form, Path=VM.Presentation.Entity, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
             </TabItem>
         </TabControl>

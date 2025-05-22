@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using W2G.WPF.Core;
 
 namespace W2G.WPF.Modules
 {
@@ -10,23 +11,10 @@ namespace W2G.WPF.Modules
         public AdminMod()
         {
             InitializeComponent();
+            BtnPage_Users.FuncGetPage = () => new UserBoard();
         }
 
         private void Btn_Page_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            switch (button.Name)
-            {
-                case "Btn_Page_Right":
-                    //CCtrl_Page.Content = new RightPage();
-                    break;
-                case "Btn_Page_Users":
-                    //CCtrl_Page.Content = new UserPage();
-                    break;
-                default:
-                    CCtrl_Page.Content = null;
-                    break;
-            }
-        }
+        => CCtrl_Page.Content = (sender as PageButton)?.FuncGetPage();
     }
 }

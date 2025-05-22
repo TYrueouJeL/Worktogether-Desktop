@@ -14,9 +14,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical" x:Name="UG_Module">
-            <core:PageButton x:Name="Btn_Page_Right" Kind="LockOutline"     Label="Droits"         Click="Btn_Page_Click" />
-            <core:PageButton x:Name="Btn_Page_Users" Kind="AccountOutline"  Label="Utilisateurs"   Click="Btn_Page_Click" />
+        <StackPanel Grid.Column="0" Orientation="Vertical" x:Name="UGrd_Pages">
+            <core:PageButton x:Name="BtnPage_Users" Kind="AccountOutline"  Label="Utilisateurs"   Click="Btn_Page_Click" />
         </StackPanel>
 
         <ContentControl Grid.Column="2" x:Name="CCtrl_Page"/>

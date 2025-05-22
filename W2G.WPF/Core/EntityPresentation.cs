@@ -29,6 +29,11 @@ namespace W2G.WPF.Core
 
             SaveCommand = new RelayCommand(() =>
             {
+                if (HasErrors)
+                {
+                    return;
+                }
+
                 if (SaveFields())
                 {
                     if (IsNew())
@@ -46,7 +51,7 @@ namespace W2G.WPF.Core
                         }
                     }
                 }
-            }, () => !HasErrors);
+            }, () => true);
 
             ResetCommand = new RelayCommand(ResetFields);
 

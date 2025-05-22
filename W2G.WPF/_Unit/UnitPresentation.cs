@@ -102,9 +102,9 @@ namespace W2G.WPF
         public CommandedUnitEntity? LastCommand { get; private set; }
         public OrderEntity? CurrentOrder => LastCommand?.Order;
 
-        public string CustomerName => CurrentOrder == null ? "" : CurrentOrder.User.FullName;
-        public string RentEndDate => CurrentOrder?.EndDate == null ? "" : CurrentOrder.EndDate.Value.ToString("dd/MM/yyyy");
-        public string InterventionCount => Entity.Interventions(Controller.Context).Count().ToString();
+        //public string CustomerName => CurrentOrder == null ? "" : CurrentOrder.User.FullName;
+        //public string RentEndDate => CurrentOrder?.EndDate == null ? "" : CurrentOrder.EndDate.Value.ToString("dd/MM/yyyy");
+        //public string InterventionCount => Entity.Interventions(Controller.Context).Count().ToString();
 
         public UnitPresentation(UnitController controller, UnitEntity entity) : base(controller, entity)
         {
@@ -129,10 +129,17 @@ namespace W2G.WPF
 
         public override bool SaveFields()
         {
+            if (!IsNew())
+            {
+                Entity.Bay   = Bay;
+                Entity.State = State;
+                Entity.Usage = Usage;
+            }
+
             Entity.Reference = Reference;
-            Entity.Bay = Bay;
-            Entity.State = State;
-            Entity.Usage = Usage;
+            Entity.BayId     = Bay.Id;
+            Entity.StateId   = State.Id;
+            Entity.UsageId   = Usage.Id;
 
             return true;
         }
@@ -140,9 +147,9 @@ namespace W2G.WPF
         public override void ResetFields()
         {
             Reference = Entity.Reference;
-            Bay = Entity.Bay;
-            State = Entity.State;
-            Usage = Entity.Usage;
+            Bay       = Entity.Bay;
+            State     = Entity.State;
+            Usage     = Entity.Usage;
         }
     }
 }

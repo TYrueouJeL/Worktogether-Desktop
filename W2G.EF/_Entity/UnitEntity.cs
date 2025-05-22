@@ -16,6 +16,7 @@ namespace W2G.EF
 
         [Column("bay_id")]
         public int BayId { get; set; }
+        public virtual BayEntity Bay { get; set; }
         
         [Column("usage_id")]
         public int UsageId { get; set; }

@@ -154,11 +154,17 @@ namespace W2G.WPF
 
         public override bool SaveFields()
         {
+            if (!IsNew())
+            {
+                Entity.Type = Type;
+                Entity.Unit = Unit;
+            }
+
             Entity.Title = Title;
             Entity.Description = Description;
             Entity.Date = Date;
-            Entity.Type = Type;
-            Entity.Unit = Unit;
+            Entity.TypeId = Type.Id;
+            Entity.UnitId = Unit.Id;
 
             return true;
         }

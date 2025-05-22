@@ -23,7 +23,7 @@ namespace W2G.WPF
 
         public BayEntity BayFilter
         {
-            get { return(BayEntity)GetValue(BayFilterProperty); }
+            get { return (BayEntity)GetValue(BayFilterProperty); }
             set { SetValue(BayFilterProperty, value); }
         }
         #endregion
@@ -40,22 +40,23 @@ namespace W2G.WPF
             DataContext = VM;
             InitializeComponent();
         }
+
         public UnitBoard(EBoardMode mode, string search)
             : this(new UnitController(), mode, search)
         {
-
         }
+
         public UnitBoard()
            : this(new UnitController(), EBoardMode.Extended, null)
         {
-
         }
 
         private bool FilterSource(UnitEntity entity)
         {
-            if (BayFilter != null &&  entity.BayId != BayFilter)
+            if (BayFilter != null && entity.BayId != BayFilter)
+            {
                 return false;
-
+            }
             return true;
         }
 

@@ -40,7 +40,7 @@ namespace W2G.WPF
                 {
                     MessageBox.Show("Utilisateur inconnu", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                else if (user.Role == 0)
+                else if (user.Role == 0 || user.Role == UserRole.Client)
                 {
                     MessageBox.Show("Vous n'êtes pas autorisé à vous connecter", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 }

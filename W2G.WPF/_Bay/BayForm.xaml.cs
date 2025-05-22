@@ -12,8 +12,9 @@ namespace W2G.WPF
         public FormVM<BayEntity> VM { get; }
         public BayForm(BayController controller, EFormMode mode, BayEntity e)
         {
-            InitializeComponent();
             DataContext = VM = new FormVM<BayEntity>(controller, mode, e);
+            //UnitB.BayFilter = e;
+            InitializeComponent();
         }
         public BayForm()
             : this(new BayController(), EFormMode.Create, new BayEntity())
