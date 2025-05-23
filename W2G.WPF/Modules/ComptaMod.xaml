@@ -15,8 +15,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Orientation="Vertical" x:Name="UG_Module">
-            <core:PageButton x:Name="BtnPage_Offer"       Kind="Presentation"     Label="Offres"    Click="Btn_Page_Click" />
-            <core:PageButton x:Name="BtnPage_Contract"    Kind="BriefcaseOutline" Label="Commandes"  Click="Btn_Page_Click" />
+            <core:PageButton x:Name="BtnPage_Pack"          Kind="Presentation"     Label="Packs"       Click="Btn_Page_Click" />
+            <core:PageButton x:Name="BtnPage_Order"         Kind="BriefcaseOutline" Label="Commandes"   Click="Btn_Page_Click" />
         </StackPanel>
 
         <ContentControl Grid.Column="2" x:Name="CCtrl_Page"/>

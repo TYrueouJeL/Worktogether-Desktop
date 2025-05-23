@@ -12,8 +12,8 @@ namespace W2G.WPF
         public FormVM<UnitEntity> VM { get; }
         public UnitForm(UnitController controller, EFormMode mode, UnitEntity e)
         {
-            InitializeComponent();
             DataContext = VM = new FormVM<UnitEntity>(controller, mode, e);
+            InitializeComponent();
         }
         public UnitForm(EFormMode mode, UnitEntity e)
             : this(new UnitController(), mode, e)

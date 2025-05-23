@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using W2G.WPF.Core;
 
 namespace W2G.WPF.Modules
 {
@@ -10,26 +11,11 @@ namespace W2G.WPF.Modules
         public ComptaMod()
         {
             InitializeComponent();
+            BtnPage_Pack.FuncGetPage = () => new PackBoard();
+            BtnPage_Order.FuncGetPage = () => new OrderBoard();
         }
 
         private void Btn_Page_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Button button = (Button)sender;
-            switch (button.Name)
-            {
-                case "Btn_Page_Customer":
-                    //CCtrl_Page.Content = new CustomerPage();
-                    break;
-                case "Btn_Page_Contract":
-                    //CCtrl_Page.Content = new ContractPage();
-                    break;
-                case "Btn_Page_Offer":
-                    //CCtrl_Page.Content = new OfferPage();
-                    break;
-                default:
-                    CCtrl_Page.Content = null;
-                    break;
-            }
-        }
+        => CCtrl_Page.Content = (sender as PageButton)?.FuncGetPage();
     }
 }
